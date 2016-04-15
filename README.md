@@ -6,7 +6,6 @@ Code required to recreate a node crash using mqlight
 2. In one console window run `node app.js`
 3. In another window run `upload.sh`
 4. Wait
-5. 
 
 The crash should occur with a minute or 2.
 
