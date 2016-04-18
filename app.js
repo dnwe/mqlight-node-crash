@@ -4,7 +4,8 @@ var express = require('express'),
     busboy = require('connect-busboy'),
     mqClient = mqlight.createClient( { service: 'amqp:localhost' } ),
     app = express(),
-    server = http.Server(app);
+    server = http.Server(app),
+    count = 0;
 
 function sendMsg(){
   var msg = 'Time:' + new Date();
@@ -12,6 +13,7 @@ function sendMsg(){
 }
 app.use(busboy());
 function onUploadRequestBusboy(req, res, next){
+  console.log(++count);
   res.on('finish', sendMsg);
   req.pipe(req.busboy);
   req.busboy.on('finish', function(){
@@ -20,3 +22,4 @@ function onUploadRequestBusboy(req, res, next){
 }
 app.post('/upload', onUploadRequestBusboy);
 server.listen(5000, 'localhost');
+
