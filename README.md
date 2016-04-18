@@ -8,5 +8,13 @@ Code required to recreate a node crash using mqlight
 3. In another window run `upload.sh`
 4. Wait
 
-The crash should occur with a minute or 2.
+The crash should occur with a minute or 2. The console output is as follows:
+```
+node.js:342
+          callback = tock.callback;
+                         ^
+
+TypeError: Cannot read property 'callback' of undefined
+    at process._tickCallback (node.js:342:26)
+```    
 
