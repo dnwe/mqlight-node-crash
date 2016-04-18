@@ -1,3 +1,3 @@
 while true;
-  do curl -F "uploadMe=@./fixtures/5MB.dat" localhost:5000/upload;
+  do curl -F "uploadMe=@./fixtures/test.txt" localhost:5000/upload;
 done;
